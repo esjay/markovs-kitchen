@@ -1,0 +1,9 @@
+{
+  "name": "markovs-kitchen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/esjay/markovs-kitchen.git",
+  "author": "esjay <wayne.elgin@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
