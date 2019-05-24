@@ -5,5 +5,11 @@
   "repository": "https://github.com/esjay/markovs-kitchen.git",
   "author": "esjay <wayne.elgin@gmail.com>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "markov-generator": "^1.2.2"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
 }
