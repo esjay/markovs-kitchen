@@ -10,3 +10,17 @@ Hi, hello. We would like to frustrate your search for a recipe.
 - https://food52.com/recipes
 - https://www.epicurious.com/recipes-menus
 - https://www.thekitchn.com/recipes
+
+## Howto
+
+### Install
+`yarn`
+
+### See some Markov text
+`yarn generate`
+
+### Dev
+`yarn start`
+
+### Build
+`yarn build`
