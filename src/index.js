@@ -18,8 +18,13 @@
 // }
 
 // init();
+const React = require('react');
+const ReactDOM = require('react-dom');
+// const Gen = require('sentence-generator');
 
-const Gen = require('sentence-generator');
-
-const gen = Gen('data/smitten.txt');
-console.log(gen.take(6));
+// const gen = Gen('data/smitten.txt');
+// console.log(gen.take(6));
+const App = ({}) => (
+    <div>Test</div>
+);
+ReactDOM.render(<App />, document.querySelector('#root'));
