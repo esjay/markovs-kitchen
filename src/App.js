@@ -1,9 +1,20 @@
 import React from 'react';
+import { Waypoint } from 'react-waypoint';
 
-const SeedText = () => <>{'Start '.repeat(9999)}</>
+
+const SeedText = () => <>{'Start '.repeat(999)}</>
+const EndText = () => <>{'Cease '.repeat(999)}</>
 
 const App = ({}) => (
-    <SeedText/>
+    <>
+        <SeedText/>
+        <Waypoint
+            bottomOffset={'-30%'}
+            onEnter={({currentPosition, previousPosition}) => console.log('onEnter', {currentPosition, previousPosition})}
+            debug={false}
+        />
+        <EndText/>
+    </>
 );
 
 export default App;
