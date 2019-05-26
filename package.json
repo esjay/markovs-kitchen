@@ -10,13 +10,15 @@
     "markov-generator": "^1.2.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-window-infinite-loader": "^1.0.3",
     "sentence-generator": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate": "node src/generate.js"
   },
   "devDependencies": {
     "react-scripts": "^3.0.1"
