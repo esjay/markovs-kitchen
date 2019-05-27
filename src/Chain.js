@@ -11,8 +11,4 @@ export const Chain = ({minLength = 10, numSentences = 1}) => {
     }, '');
 };
 
-export const mockGen = () => {
-    return 'middle ';
-};
-
-export default mockGen;
+export default Chain;

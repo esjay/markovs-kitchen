@@ -8,9 +8,6 @@ https://markovs-kitchen.web.app/
 ### Install
 `yarn`
 
-### See some Markov text
-`yarn generate`
-
 ### Dev
 `yarn start`
 
