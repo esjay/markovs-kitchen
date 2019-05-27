@@ -1,29 +1,51 @@
-import React, {useState, useLayoutEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import { Waypoint } from 'react-waypoint';
-import {Chain, mockGen} from './Chain';
+import {Chain} from './Chain';
 
-const ChainParagraph = ({numSentences = 5}) => {
-    const [text, setText] = useState(Chain.bind(this, {numSentences}));
-    return (<p>{text}</p>);
+const ChainText = ({numSentences = 5}) => {
+    const paragraphLength = 5;
+    const numParagraphs = Math.ceil(numSentences / paragraphLength);
+    const generateTextArray = useCallback(() => {
+        let sentencesRemaining = numSentences;
+        return Array.from({length: numParagraphs}).map(() => {
+            let sentences = Math.round(sentencesRemaining / numParagraphs >= 1 ? sentencesRemaining / numParagraphs : sentencesRemaining % numParagraphs);
+            sentencesRemaining -= sentences;
+            return Chain({numSentences: sentences})
+        });
+    }, [numParagraphs, numSentences]);
+    const [textArray, setTextArray] = useState(generateTextArray);
+    useEffect(() => {
+        setTextArray((previousTextArray) => [...previousTextArray, ...generateTextArray()])
+    }, [numSentences, generateTextArray]);
+    return (
+        textArray.map((text, i) => (
+            <p key={i}>{text}</p>
+        ))
+    );
 };
 
 const App = () => {
-    const [middle, setMiddle] = useState('');
-    const [length, setLength] = useState(0);
-    useLayoutEffect(() => {
+    const [sentenceLength, setSentenceLength] = useState(30);
+    const [waypointTop, setWaypointTop] = useState(1);
 
-    });
+    useEffect(() => {
+        const {offsetHeight} = document.querySelector('body');
+        if(waypointTop > 1) {
+            const newHeight = Math.round((offsetHeight - waypointTop) / 10);
+            setSentenceLength(newHeight);
+        }
+    }, [waypointTop]);
     return (
         <>
-            <ChainParagraph numSentences={10}/>
-            <span>{middle.repeat(length)}</span>
+            <ChainText numSentences={10}/>
+            <ChainText numSentences={sentenceLength}/>
             <Waypoint
-                bottomOffset={'-30%'}
-                onEnter={({waypointTop}) => {setMiddle(mockGen); setLength(waypointTop*10);}}
+                bottomOffset={'-50%'}
+                onEnter={({waypointTop}) => {setWaypointTop(waypointTop);}}
                 debug={true}
             >
             </Waypoint>
-            <ChainParagraph numSentences={10}/>
+            <ChainText numSentences={10}/>
         </>
     );
 };
