@@ -10,10 +10,7 @@
     "markov-generator": "^1.2.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-waypoint": "^9.0.2",
-    "react-window": "^1.8.1",
-    "react-window-infinite-loader": "^1.0.3",
-    "sentence-generator": "^1.0.1"
+    "react-waypoint": "^9.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
