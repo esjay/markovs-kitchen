@@ -42,7 +42,6 @@ const App = () => {
             <Waypoint
                 bottomOffset={'-50%'}
                 onEnter={({waypointTop}) => {setWaypointTop(waypointTop);}}
-                debug={true}
             >
             </Waypoint>
             <ChainText numSentences={10}/>
